@@ -1,0 +1,44 @@
+@port = 3200
+
+### Válida
+GET http://localhost:{{port}}/api/pinturas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJycmFtaXJleiIsImVtYWlsIjoicnJhbWlyZXpAbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJpYXQiOjE3NDc4NzUyNTF9.i-NHsa8cXeTuRjB_zUDV9to18oB-oOer49hSc_qv7iY
+
+### No valida
+GET http://localhost:{{port}}/api/pinturas
+Authorization: Bearer eyJsasashbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJycmFtaXJleiIsImVtYWlsIjoicnJhbWlyZXpAbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJpYXQiOjE3NDc4NzUyNTF9.i-NHsa8cXeTuRjB_zUDV9to18oB-oOer49hSc_qv7iY
+
+### No válida
+GET http://localhost:{{port}}/api/productos
+###
+GET http://localhost:{{port}}/api/historico
+
+###
+GET http://localhost:{{port}}/api/pinturas?nombre=cri&artista=eg&orden=anio
+###
+GET http://localhost:{{port}}/api/pinturas?nombre=cri&orden=tecnica
+###
+GET http://localhost:{{port}}/api/pinturas?orden=artista
+###
+GET http://localhost:{{port}}/api/pinturas/40
+###
+POST http://localhost:{{port}}/api/pinturas
+Content-Type: application/json
+
+{
+    "producto":"Pintura 1",
+    "categoria": "Pinturas",
+    "cantidad": "1",
+    "precio": "1234"
+}
+###
+PUT http://localhost:{{port}}/api/pinturas/40
+Content-Type: application/json
+
+{
+    "anio":1970
+}
+
+###
+DELETE http://localhost:{{port}}/api/pinturas/40
+

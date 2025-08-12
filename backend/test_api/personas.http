@@ -1,0 +1,42 @@
+@port = 3200
+
+### Válida
+GET http://localhost:{{port}}/api/personas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJycmFtaXJleiIsImVtYWlsIjoicnJhbWlyZXpAbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJpYXQiOjE3NDc4NzUyNTF9.i-NHsa8cXeTuRjB_zUDV9to18oB-oOer49hSc_qv7iY
+
+### No valida
+GET http://localhost:{{port}}/api/personas
+Authorization: Bearer eyJsasashbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJycmFtaXJleiIsImVtYWlsIjoicnJhbWlyZXpAbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTIyVDAwOjI1OjU5LjExMFoiLCJpYXQiOjE3NDc4NzUyNTF9.i-NHsa8cXeTuRjB_zUDV9to18oB-oOer49hSc_qv7iY
+
+### No válida
+GET http://localhost:{{port}}/api/personas
+
+
+###
+GET http://localhost:{{port}}/api/personas?apellido=pe&nombre=ma&orden=apellido
+###
+GET http://localhost:{{port}}/api/personas?apellido=pe&orden=apellido
+###
+GET http://localhost:{{port}}/api/personas?orden=edad
+###
+GET http://localhost:{{port}}/api/personas/7
+###
+POST http://localhost:{{port}}/api/personas
+Content-Type: application/json
+
+{
+    "nombre":"Juan Garlos",
+    "apellido": "Pereyra",
+    "edad": "51"
+}
+###
+PUT http://localhost:{{port}}/api/personas/4
+Content-Type: application/json
+
+{
+    "edad":99
+}
+
+###
+DELETE http://localhost:{{port}}/api/personas/7
+

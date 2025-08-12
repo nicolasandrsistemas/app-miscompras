@@ -1,0 +1,7 @@
+[
+  {"producto": "coca cola", "categoria": "Bebida", "cantidad": 1,"precio": 1.0},
+  {"producto": "pepsi", "categoria": "Bebida", "cantidad": 2,"precio": 1.0},
+  {"producto": "sprite", "categoria": "Bebida", "cantidad": 3,"precio": 1.0},
+  {"producto": "fanta", "categoria": "Bebida", "cantidad": 4,"precio": 1.0},
+  {"producto": "agua mineral", "categoria": "Bebida", "cantidad": 5,"precio": 1.0}
+]
