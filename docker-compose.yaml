@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+    # No montes volúmenes aquí para producción
+
+  backend:
+    build: ./backend
+    container_name: backend
+    environment:
+      - DB_PATH=/data/datos.db
+    volumes:
+      - db-data:/data   # Solo la base de datos persiste
+    expose:
+      - "3200"
+    restart: always
+
+  apache:
+    build: ./apache
+    container_name: apache
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+    # No montes volúmenes aquí para producción
+
+volumes:
+  db-data:
+    driver: local
